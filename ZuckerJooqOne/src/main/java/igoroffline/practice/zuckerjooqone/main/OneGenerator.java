@@ -7,30 +7,36 @@ import org.jooq.codegen.GenerationTool;
 import org.jooq.meta.jaxb.*;
 import org.springframework.stereotype.Service;
 
-@Service
 @Slf4j
-public class Hello {
+@Service
+public class OneGenerator {
+
+    private final OneDatasource oneDatasource;
+
+    public OneGenerator(OneDatasource oneDatasource) {
+        this.oneDatasource = oneDatasource;
+    }
 
     @PostConstruct
     public void init() {
-        log.info("--- INIT START ---");
-        hello();
-        log.info("--- INIT END ---");
+        //log.info("--- INIT START ---");
+        //generate();
+        //log.info("--- INIT END ---");
     }
 
-    public void hello() {
+    public void generate() {
         final var configuration = new Configuration().withJdbc(
                 new Jdbc()
                         .withDriver("org.postgresql.Driver")
-                        .withUrl("jdbc:postgresql://localhost:5432/first")
-                        .withUser("REPLACE_WITH_ACTUAL_USERNAME")
-                        .withPassword("REPLACE_WITH_ACTUAL_PASSWORD"))
+                        .withUrl(oneDatasource.url())
+                        .withUser(oneDatasource.username())
+                        .withPassword(oneDatasource.password()))
                 .withGenerator(
                         new Generator().withDatabase(
                                 new Database().withName("org.jooq.meta.postgres.PostgresDatabase"))
                                 .withTarget(new Target()
-                                        .withPackageName("igoroffline.practice.zuckerjooqone.main.generated")
-                                        .withDirectory("src/main/java/igoroffline/practice/zuckerjooqone/main/generated")));
+                                        .withPackageName("igoroffline.practice.zuckerjooqone.generated")
+                                        .withDirectory("src/main/java")));
 
         try {
             GenerationTool.generate(configuration);
