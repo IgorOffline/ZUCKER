@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: ZuckerJooqOne
+  main:
+    web-application-type: none
+  datasource:
+    url: jdbc:postgresql://localhost:5432/first
+    username: REPLACE_WITH_ACTUAL_USERNAME
+    password: REPLACE_WITH_ACTUAL_PASSWORD
