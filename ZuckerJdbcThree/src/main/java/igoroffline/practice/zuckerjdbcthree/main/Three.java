@@ -20,11 +20,11 @@ public class Three {
     @PostConstruct
     public void init() {
         log.info("--- INIT ---");
-        main();
+        three();
         log.info("--- END ---");
     }
 
-    private void main() {
+    private void three() {
         final var jdbcTemplate = new JdbcTemplate(dataSource);
         final var countryCount = jdbcTemplate.queryForObject("SELECT COUNT('id_country') FROM public.country", Integer.class);
         log.info("countryCount= {}", countryCount);
