@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: ZuckerHibernateTwo
+  main:
+    web-application-type: none
+  datasource:
+    url: jdbc:postgresql://localhost:5432/dvdrental
+    username: REPLACE_WITH_ACTUAL_USERNAME
+    password: REPLACE_WITH_ACTUAL_PASSWORD
+  jpa:
+    hibernate:
+      ddl-auto: validate
