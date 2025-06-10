@@ -24,9 +24,11 @@ public class CountryService {
         final var germany = countryRepository.getCountryByCountryContainingIgnoreCase(germanyString);
         final var germany2 = countryRepository2.getCountryTemp();
         final var germany3 = countryRepository2.getCountryByCountryContainingIgnoreCase2(germanyString);
+        final var germany4 = countryRepository2.getCountryCriteriaBuilderPractice();
         log.info("germany= {}", germany);
         log.info("germany2= {}", germany2);
         log.info("germany3= {}", germany3);
+        log.info("germany4= {}", germany4);
         log.info("--- END ---");
     }
 }
