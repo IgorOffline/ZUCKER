@@ -1,0 +1,4 @@
+rootProject.name = 'ZuckerJooqNine'
+
+include 'ZuckerJooqNineGenerator'
+include 'ZuckerJooqNineBackend'
