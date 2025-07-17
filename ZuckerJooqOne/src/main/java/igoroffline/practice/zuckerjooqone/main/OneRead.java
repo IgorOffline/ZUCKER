@@ -3,7 +3,7 @@ package igoroffline.practice.zuckerjooqone.main;
 import igoroffline.practice.zuckerjooqone.generated.public_.tables.Country;
 import jakarta.annotation.PostConstruct;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.Strings;
 import org.jooq.DSLContext;
 import org.springframework.stereotype.Service;
 
@@ -22,7 +22,7 @@ public class OneRead {
         log.info("--- INIT START ---");
         final var countries = dslContext.selectFrom(Country.COUNTRY).fetch();
         countries.forEach(country -> {
-            if (StringUtils.containsIgnoreCase(country.getCountry(), "germany")) {
+            if (Strings.CI.contains(country.getCountry(), "germany")) {
                 log.info(country.getCountry());
             }
         });
